@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahendra AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#101827;
+ color:white;
+}
+header{
+ background:#17243a;
+ padding:20px;
+ text-align:center;
+ font-size:24px;
+ font-weight:bold;
+ border-bottom:1px solid #334155;
+}
+header span{color:#38bdf8}
+main{
+ max-width:700px;
+ margin:auto;
+ padding:20px;
+}
+.welcome{
+ text-align:center;
+ margin:35px 0;
+}
+.welcome h2{font-size:27px}
+.welcome p{color:#aab8ca}
+#chat{
+ min-height:350px;
+ max-height:55vh;
+ overflow-y:auto;
+ padding:10px;
+}
+.message{
+ padding:13px 16px;
+ margin:12px 0;
+ border-radius:14px;
+ line-height:1.6;
+ overflow-wrap:anywhere;
+}
+.bot{
+ background:#24364f;
+ margin-right:35px;
+}
+.user{
+ background:#075985;
+ margin-left:35px;
+}
+.input-area{
+ display:flex;
+ gap:8px;
+ margin-top:15px;
+}
+input{
+ flex:1;
+ min-width:0;
+ padding:15px;
+ border-radius:12px;
+ border:1px solid #475569;
+ background:#1e293b;
+ color:white;
+ font-size:16px;
+}
+button{
+ border:0;
+ border-radius:12px;
+ padding:14px 19px;
+ background:#0284c7;
+ color:white;
+ font-size:16px;
+ font-weight:bold;
+}
+footer{
+ text-align:center;
+ color:#94a3b8;
+ font-size:12px;
+ margin-top:25px;
+}
+</style>
+</head>
+<body>
+<header>🤖 <span>MAHENDRA</span> AI</header>
+<main>
+ <div class="welcome">
+  <h2>नमस्ते! मैं महेंद्र AI हूँ।</h2>
+  <p>आपका अपना AI सहायक।</p>
+ </div>
+ <div id="chat">
+  <div class="message bot">
+   नमस्कार मालिक! 🙏<br>
+   मैं महेंद्र AI हूँ। बताइए, मैं आपकी क्या मदद कर सकता हूँ?
+  </div>
+ </div>
+ <div class="input-area">
+  <input id="question" placeholder="यहाँ अपना सवाल लिखें..." />
+  <button onclick="sendMessage()">भेजें</button>
+ </div>
+ <footer>Mahendra AI © 2026 | आपका अपना सहायक</footer>
+</main>
+<script>
+function sendMessage(){
+ const input=document.getElementById("question");
+ const chat=document.getElementById("chat");
+ const q=input.value.trim();
+ if(!q)return;
+
+ chat.innerHTML += '<div class="message user"></div>';
+ chat.lastElementChild.textContent=q;
+ input.value="";
+
+ chat.innerHTML += '<div class="message bot"></div>';
+ chat.lastElementChild.textContent=
+ "आपका सवाल मिल गया मालिक! 🙏 असली AI जवाब देने की सुविधा अभी जोड़ी जानी बाकी है।";
+ chat.scrollTop=chat.scrollHeight;
+}
+document.getElementById("question").addEventListener("keydown",function(e){
+ if(e.key==="Enter")sendMessage();
+});
+</script>
+</body>
+</html>
